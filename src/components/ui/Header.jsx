@@ -110,7 +110,9 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: theme.palette.common.orange
     },
     drawerItemSelected: {
-        opacity: 1
+        "& .MuiListItemText-root" : {
+            opacity: 1
+        }
     },
     appbar: {
         zIndex: theme.zIndex.modal + 1
@@ -189,7 +191,9 @@ export default function Header(props) {
         MenuListProps={{ onMouseLeave: handleClose }}
         classes={{paper: classes.menu}}
         elevation={0}
-        keepMounted>
+        style={{zIndex: 1302}}
+        keepMounted
+        >
          {menuOptions.map((x, i) => 
                 <MenuItem key={x}
                     component={Link} 
