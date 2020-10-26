@@ -126,11 +126,11 @@ export default function Header(props) {
 
     const matches = useMediaQuery(theme.breakpoints.down("md"));
 
-    const [value, setValue] = useState(0);
     const [anchorEl, setAnchorEl] = useState(null);
     const [openMenu, setOpenMenu] = useState(false);
-    const [selectedIndex, setSelectedIndex] = useState(0);
     const [openDrawer, setOpenDrawer] = useState(false);
+
+    const { value, setValue, selectedIndex, setSelectedIndex } = props;
 
     const handleChange = (_, newValue) => {
         setValue(newValue);
@@ -166,7 +166,7 @@ export default function Header(props) {
 
     useEffect(() => {
         setValue( map1[window.location.pathname]);
-    }, [value])
+    }, [value, selectedIndex, menuOptions, routes])
         
     const tabs = (
         <React.Fragment>
